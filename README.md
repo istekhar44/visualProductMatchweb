@@ -1,4 +1,4 @@
-# Internet Reverse Image Search Engine
+# Visual Product Matcher 
 
 A full-stack web application that performs reverse image search using the Bing Visual Search API. Users can upload images or provide image URLs to find visually similar images from across the internet.
 
@@ -7,25 +7,25 @@ A full-stack web application that performs reverse image search using the Bing V
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 
-## ✨ Features
+##  Features
 
-- 📤 **Drag & Drop Upload**: Intuitive drag-and-drop interface for image uploads
-- 🔗 **URL Support**: Search using image URLs from the web
-- 🖼️ **Image Preview**: Preview images before searching
-- 🎯 **50 Results**: Get up to 50 visually similar images
-- 📱 **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- ⚡ **Fast & Efficient**: Optimized API integration with Bing Visual Search
-- 🎨 **Modern UI**: Beautiful gradient design with Tailwind CSS
-- 🔄 **Real-time Feedback**: Loading states and error handling
+- Drag & Drop Upload**: Intuitive drag-and-drop interface for image uploads
+- URL Support**: Search using image URLs from the web
+- Image Preview**: Preview images before searching
+- 50 Results**: Get up to 50 visually similar images
+- Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- Fast & Efficient**: Optimized API integration with Bing Visual Search
+- Modern UI**: Beautiful gradient design with Tailwind CSS
+- Real-time Feedback**: Loading states and error handling
 
-## 🛠️ Tech Stack
+## Tejchnologies used 
 
 ### Frontend
 - **React 18.3** - UI framework
 - **Vite** - Build tool and dev server
 - **Tailwind CSS** - Styling
 - **Axios** - HTTP client
-- **React Dropzone** - Drag & drop functionality
+
 
 ### Backend
 - **Python 3.8+**
@@ -34,7 +34,7 @@ A full-stack web application that performs reverse image search using the Bing V
 - **Bing Visual Search API** - Image search engine
 - **Pillow** - Image validation
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 visualProductMatcher/
@@ -63,52 +63,7 @@ visualProductMatcher/
 └── README.md
 ```
 
-## 🚀 Getting Started
 
-### Prerequisites
-
-- **Node.js** 16+ and npm
-- **Python** 3.8+
-- **Bing Visual Search API Key** from [Azure Portal](https://portal.azure.com/)
-
-### Backend Setup
-
-1. **Navigate to backend directory**
-   ```bash
-   cd backend
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   
-   # Windows
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment variables**
-   ```bash
-   # Copy the example file
-   cp .env.example .env
-   
-   # Edit .env and add your Bing API key
-   BING_API_KEY=your_actual_api_key_here
-   ```
-
-5. **Run the backend server**
-   ```bash
-   uvicorn main:app --reload
-   ```
-   
-   Backend will run on `http://localhost:8000`
 
 ### Frontend Setup
 
@@ -137,7 +92,7 @@ visualProductMatcher/
 4. Copy your API key from the "Keys and Endpoint" section
 5. Add it to your `.env` file
 
-## 📡 API Documentation
+##  API Documentation
 
 ### Endpoint: `POST /search`
 
@@ -171,7 +126,7 @@ Search for visually similar images.
 }
 ```
 
-## 🌐 Deployment
+##  Deployment
 
 ### Backend Deployment (Render/Railway)
 
@@ -207,7 +162,7 @@ Search for visually similar images.
    vercel --prod
    ```
 
-## 🎯 Usage
+##  Usage
 
 1. **Choose your search method:**
    - Click "Upload Image" to drag & drop or browse for an image
@@ -255,40 +210,10 @@ Add to `.env.local`:
 VITE_API_URL=https://your-backend-url.com
 ```
 
-## 🐛 Troubleshooting
+##  Visuals 
+<img width="1893" height="911" alt="Screenshot 2026-02-15 130426" src="https://github.com/user-attachments/assets/3699bd2f-9c22-4324-85a4-cfe6c62a8251" />
+<img width="1895" height="907" alt="Screenshot 2026-02-15 130453" src="https://github.com/user-attachments/assets/dffe7c85-4ee5-4387-964d-e3f983e1610a" />
+<img width="1886" height="914" alt="Screenshot 2026-02-15 130519" src="https://github.com/user-attachments/assets/cd804aec-ff58-416e-b5c6-8986acccc978" />
 
-### Backend Issues
 
-**Error: "API key not configured"**
-- Make sure `.env` file exists in backend directory
-- Verify `BING_API_KEY` is set correctly
 
-**Error: "API request failed"**
-- Check your Bing API subscription status
-- Verify you haven't exceeded rate limits
-
-### Frontend Issues
-
-**Error: "Cannot connect to the server"**
-- Ensure backend is running on `http://localhost:8000`
-- Check CORS settings in backend
-
-**Images not loading**
-- Some image URLs may be blocked by CORS
-- Try uploading the image file instead
-
-## 📝 License
-
-MIT License - feel free to use this project for personal or commercial purposes.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📧 Support
-
-For issues or questions, please open an issue on GitHub.
-
----
-
-**Built with ❤️ using React, FastAPI, and Bing Visual Search API**
