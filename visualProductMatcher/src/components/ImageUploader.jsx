@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export function ImageUploader({ onImageSelect }) {
-  const [mode, setMode] = useState('upload'); // 'upload' or 'url'
+  const [mode, setMode] = useState(''); // 'upload' or 'url'
   const [urlInput, setUrlInput] = useState('');
   const [error, setError] = useState('');
 

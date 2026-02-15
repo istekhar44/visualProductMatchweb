@@ -1,6 +1,4 @@
-import { ProductCard } from './ProductCard';
-
-export function ProductGrid({ products, isLoading, error, hasUploadedImage }) {
+export function ProductGrid({ products, isLoading, error, hasUploadedImage, categories }) {
   if (error) {
     return (
       <div className="w-full bg-red-50 border border-red-200 rounded-lg p-6 text-center">
@@ -14,10 +12,10 @@ export function ProductGrid({ products, isLoading, error, hasUploadedImage }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M12 9v2m0 4v2m0 4v2M6.343 17.657l1.414-1.414m2.828 2.828l1.414-1.414m4.242 0l1.414 1.414m2.828-2.828l1.414 1.414M9 5h6m0-2v2m-2-4v4"
+            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 className="text-lg font-bold text-red-800 mb-2">Error Loading Products</h3>
+        <h3 className="text-lg font-bold text-red-800 mb-2">Error Loading Results</h3>
         <p className="text-red-700">{error}</p>
       </div>
     );
@@ -33,7 +31,8 @@ export function ProductGrid({ products, isLoading, error, hasUploadedImage }) {
     );
   }
 
-  if (products.length === 0 && !hasUploadedImage) {
+  // Show products if available (including sample images on initial load)
+  if (!products || products.length === 0) {
     return (
       <div className="w-full bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
         <svg
@@ -49,46 +48,52 @@ export function ProductGrid({ products, isLoading, error, hasUploadedImage }) {
             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
-        <h3 className="text-xl font-bold text-blue-800 mb-2">Upload an Image to Get Started</h3>
-        <p className="text-blue-700">
-          Upload a product image or paste an image URL to find visually similar products.
-        </p>
-      </div>
-    );
-  }
-
-  if (products.length === 0) {
-    return (
-      <div className="w-full bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
-        <svg
-          className="w-12 h-12 mx-auto mb-3 text-amber-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 015.646 5.646 9 9 0 0120.354 15.354z"
-          />
-        </svg>
-        <h3 className="text-lg font-bold text-amber-800 mb-2">No Products Found</h3>
-        <p className="text-amber-700">
-          Try lowering the similarity threshold to see more products.
-        </p>
+        <h3 className="text-xl font-bold text-blue-800 mb-2">No Images Found</h3>
+        <p className="text-blue-700">Try a different search or upload an image.</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h2 className="text-xl font-bold text-gray-800 mb-4">
-        Matched Products ({products.length})
-      </h2>
+    <div className="w-full">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-xl font-bold text-gray-800">
+          {hasUploadedImage ? 'Search Results' : 'Explore Images'}
+        </h2>
+        <span className="text-sm text-gray-600">{products.length} images</span>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <a
+            key={product.id}
+            href={product.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <div className="relative h-48 bg-gray-100 overflow-hidden">
+              <img
+                src={product.thumbnail}
+                alt={product.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="18" dy="10.5" font-weight="bold" x="50%25" y="50%25" text-anchor="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
+                }}
+                loading="lazy"
+              />
+              <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                {product.source}
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-semibold text-gray-800 text-sm line-clamp-2 group-hover:text-blue-600 transition-colors">
+                {product.title}
+              </h3>
+              <p className="text-xs text-gray-500 mt-1">{product.source}</p>
+            </div>
+          </a>
         ))}
       </div>
     </div>
