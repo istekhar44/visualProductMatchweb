@@ -9,30 +9,30 @@ A full-stack web application that performs reverse image search using the Bing V
 
 ##  Features
 
-- Drag & Drop Upload**: Intuitive drag-and-drop interface for image uploads
-- URL Support**: Search using image URLs from the web
-- Image Preview**: Preview images before searching
-- 50 Results**: Get up to 50 visually similar images
-- Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- Fast & Efficient**: Optimized API integration with Bing Visual Search
-- Modern UI**: Beautiful gradient design with Tailwind CSS
-- Real-time Feedback**: Loading states and error handling
+- Drag & Drop Upload: Intuitive drag-and-drop interface for image uploads
+- URL Support: Search using image URLs from the web
+- Image Preview: Preview images before searching
+- 50 Results: Get up to 50 visually similar images
+- Responsive Design: Works seamlessly on desktop, tablet, and mobile
+- Fast & Efficient: Optimized API integration with Bing Visual Search
+- Modern UI: Beautiful gradient design with Tailwind CSS
+- Real-time Feedback: Loading states and error handling
 
 ## Tejchnologies used 
 
 ### Frontend
-- **React 18.3** - UI framework
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Styling
-- **Axios** - HTTP client
+- React 18.3 - UI framework
+- Vite - Build tool and dev server
+- Tailwind CSS - Styling
+- Axios - HTTP client
 
 
 ### Backend
-- **Python 3.8+**
-- **FastAPI** - Modern web framework
-- **Uvicorn** - ASGI server
-- **Bing Visual Search API** - Image search engine
-- **Pillow** - Image validation
+- Python 3.8+
+- FastAPI - Modern web framework
+- Uvicorn - ASGI server
+- Bing Visual Search API - Image search engine
+- Pillow - Image validation
 
 ##  Project Structure
 
